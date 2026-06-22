@@ -1,0 +1,33 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  gap: 8px;
+}
+
+.login-container h1 {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+}
+
+.login-container input {
+  width: 220px;
+  padding: 4px;
+  font-size: 16px;
+  border: 1px solid #999;
+  box-sizing: border-box;
+}
+
+.login-container button {
+  padding: 4px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-container label {
+  font-size: 16px;
+  color: #000;
+}
