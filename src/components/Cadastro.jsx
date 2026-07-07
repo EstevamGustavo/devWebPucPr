@@ -37,7 +37,7 @@ function Cadastro() {
           required
         />
         <input
-          type="password"
+          type="password - Min 6 digitos"
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
           placeholder="Senha"
