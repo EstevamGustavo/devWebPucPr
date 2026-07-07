@@ -1,16 +1,29 @@
-# React + Vite
+# Somativa 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação em React com cadastro e login de usuários, usando Firebase Authentication (e-mail/senha) e Firestore para os dados de perfil.
 
-Currently, two official plugins are available:
+## Configuração
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Crie um arquivo `.env` na raiz do projeto com as credenciais do seu projeto Firebase (veja `.env.example`):
 
-## React Compiler
+```
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No Firebase, habilite o provedor E-mail/senha em Authentication e crie um banco Firestore.
 
-## Expanding the ESLint configuration
+## Rodando localmente
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+npm install
+npm run dev
+```
+
+## Deploy
+
+O projeto está pronto para deploy no Azure Static Web Apps (workflow em `.github/workflows/azure-static-web-apps.yml`). Cadastre as variáveis `VITE_FIREBASE_*` e `AZURE_STATIC_WEB_APPS_API_TOKEN` como secrets do repositório no GitHub.

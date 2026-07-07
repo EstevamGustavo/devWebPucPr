@@ -1,38 +1,44 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext.jsx'
-import Modal from './Modal.jsx'
 import './Login.css'
 
 function Login() {
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
-  const { sucesso, erro, login, logout } = useAuth()
+  const { erro, login } = useAuth()
 
-  function fecharModal() {
-    logout()
-    setEmail('')
-    setSenha('')
+  async function handleSubmit(e) {
+    e.preventDefault()
+    await login(email, senha)
   }
 
   return (
     <div className="login-container">
       <h1>Login</h1>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="E-mail"
-      />
-      <input
-        type="password"
-        value={senha}
-        onChange={(e) => setSenha(e.target.value)}
-        placeholder="Senha"
-      />
-      <button onClick={() => login(email, senha)}>Acessar</button>
-      <label>{sucesso ? 'Acessado com sucesso!' : erro}</label>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="E-mail"
+          required
+        />
+        <input
+          type="password"
+          value={senha}
+          onChange={(e) => setSenha(e.target.value)}
+          placeholder="Senha"
+          required
+        />
+        <button type="submit">Acessar</button>
+      </form>
 
-      {sucesso && <Modal onClose={fecharModal} />}
+      {erro && <label>{erro}</label>}
+
+      <p>
+        Não tem cadastro? <Link to="/cadastro">Cadastre-se</Link>
+      </p>
     </div>
   )
 }
