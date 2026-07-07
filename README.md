@@ -24,6 +24,3 @@ npm install
 npm run dev
 ```
 
-## Deploy
-
-O projeto está pronto para deploy no Azure Static Web Apps (workflow em `.github/workflows/azure-static-web-apps.yml`). Cadastre as variáveis `VITE_FIREBASE_*` e `AZURE_STATIC_WEB_APPS_API_TOKEN` como secrets do repositório no GitHub.
